@@ -1,0 +1,19 @@
+{
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": false,
+        "**/.hg": false,
+        "**/CVS": false,
+        "**/.DS_Store": false,
+        "**/__pycache__": false,
+        "**/__init__.py": false,
+        "**/asgi.py": false,
+        "**/wsgi.py": false,
+        "**/env": false,
+        "**/migrations": false
+    },
+    "explorerExclude.backup": null,
+    "python.pythonPath": "c:\\Users\\joak\\repos\\UpsyLoadyDjango\\env\\Scripts\\python.exe",
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true
+}
