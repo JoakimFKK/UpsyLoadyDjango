@@ -1,0 +1,13 @@
+api/models:
+  ☐ Check hvis checksum allerede eksistere.
+  ☐ `delete()` hvis checksum allerede eksistere.
+  ☐ Check Conntent/Media-Type med `magic.from_file`.
+    ☐ Eventuelt lav ny kolonne.
+      - 'application/pdf', 'audio/mp3'
+  ☐ Extension kolonne
+    - Char
+  ☐ "NSFW" kolonne
+    - Bool
+
+generelt:
+  ☐ Bruger authentication
