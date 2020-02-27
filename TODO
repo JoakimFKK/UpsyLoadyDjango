@@ -11,3 +11,60 @@ api/models:
 
 generelt:
   ☐ Bruger authentication
+
+
+
+Category:
+  ☐ ID
+  ☐ Navn
+
+Comments:
+  ☐ Entity_ID
+  ☐ Thread_ID
+  ☐ Parent_Comment_ID
+  ☐ Comment text
+  ☐ Edited
+
+Entity:
+  ☐ Entity_ID
+  ☐ User_ID
+  ☐ Creation_Date
+
+Entity_Category:
+  ☐ Entity_ID
+  ☐ Category_ID
+
+Entity_Tag:
+  ☐ Entity_ID
+  ☐ Tag_ID
+
+File:
+  ☐ Entity_ID
+  ☐ File_path
+  ☐ file_name
+  ☐ file_type
+  ☐ file_size
+  ☐ file_checksum
+  ☐ NSFW
+
+Reports:
+  ☐ reported_ID
+  ☐ user_ID
+  ☐ moderator_id
+  ☐ reason
+  ☐ optional_explanation
+  ☐ active
+
+tag:
+  ☐ tag_id
+  ☐ tag_name
+
+Threads:
+  ☐ entity_ID
+  ☐ file_ID
+  ☐ Title
+  ☐ description
+  ☐ edited
+  ☐ is_private
+  ☐ comments_allowed
+  ☐ expiration_date

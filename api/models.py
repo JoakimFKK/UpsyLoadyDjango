@@ -1,12 +1,22 @@
-import uuid
-import os
+# region Imports
 import hashlib
+import os
+import uuid
+
 from django.db import models
+
 from root.settings import BASE_DIR
+# endregion Imports
 
 
-# Create your models here.
 class File(models.Model):
+    """ Kopi af Fil tabellen fra UpsyLoady.
+
+     Tilføjelser, og mangler:
+        - Jeg har tilføjet en upload_date som bliver sat når filen bliver gemt i databasen.
+        - Navngivning af kolonner er ikke de samme som i databasen, TODO.
+        - NSFW er ikke tilføjet, TODO
+     """
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
@@ -33,13 +43,27 @@ class File(models.Model):
     )
 
     def __str__(self):
+        """ Sætter dens objekt-navn til objektets id.
+
+         Kun for æstetiske grunde, har kun en inflydelse på Python.
+         """
         return str(self.id)
 
     def absolute_url(self):
+        """ Returnere filens fulde position. """
         return os.path.join(BASE_DIR, self.filepath.url)
 
     def save(self, *args, **kwargs):
-        """ Fyld data ud. """
+        """ Fylder data ud, override af parent-method.
+
+         NOTE! Eftersom vi bruger MSSQL, og da der på nuværende tidspunkt (d.27/2-20)
+         bruges en SQLite3 database, hvilket jo ikke stemmer overens.
+         For at fikse det problem skal `super().save()` fjernes og erstattes med en
+         SQL query til den reelle server.
+
+         Denne metode overrider dens `parent-method`, og for at kalde på den skal `super()` bruges
+         efterfulgt af metodens navn.
+         """
         super().save()
 
         if not self.checksum:
@@ -51,6 +75,6 @@ class File(models.Model):
         super().save()
 
     def delete(self, *args, **kwargs):
+        """ Sletter filen, og filens info i databasen. Override af parent-method. """
         os.remove(self.absolute_url())
         super().delete()
-
