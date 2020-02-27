@@ -51,7 +51,8 @@ class File(models.Model):
 
     def absolute_url(self):
         """ Returnere filens fulde position. """
-        return os.path.join(BASE_DIR, self.filepath.url)
+        return self.filepath.path
+        # return os.path.join(BASE_DIR, self.filepath.url)
 
     def save(self, *args, **kwargs):
         """ Fylder data ud, override af parent-method.

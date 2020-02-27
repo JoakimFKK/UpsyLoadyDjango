@@ -14,6 +14,7 @@
     },
     "explorerExclude.backup": null,
     "python.pythonPath": "c:\\Users\\joak\\repos\\UpsyLoadyDjango\\env\\Scripts\\python.exe",
-    "python.linting.flake8Enabled": true,
-    "python.linting.enabled": true
+    "python.linting.flake8Enabled": false,
+    "python.linting.enabled": true,
+    "python.linting.mypyEnabled": true
 }

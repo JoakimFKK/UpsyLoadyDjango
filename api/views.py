@@ -35,5 +35,5 @@ class FilUploadView(APIView):
 
     def get(self, request, format=None):
         """ Viser de 5 nyeste uploads. """
-        files = [file.filename for file in File.objects.order_by('-upload_date')[:5]]
+        files = [file.filepath.url for file in File.objects.order_by('-upload_date')[:5]]
         return Response(files)
