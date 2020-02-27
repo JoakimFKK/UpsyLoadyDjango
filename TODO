@@ -15,8 +15,8 @@ generelt:
 
 
 Category:
-  ☐ ID
-  ☐ Navn
+  ✔ ID @done(20-02-27 08:08)
+  ✔ Navn @done(20-02-27 08:08)
 
 Comments:
   ☐ Entity_ID
@@ -26,45 +26,59 @@ Comments:
   ☐ Edited
 
 Entity:
-  ☐ Entity_ID
-  ☐ User_ID
-  ☐ Creation_Date
+  ✔ Entity_ID @done(20-02-27 08:14)
+  ✔ User_ID @done(20-02-27 08:14)
+  ✔ Creation_Date @done(20-02-27 08:14)
 
 Entity_Category:
-  ☐ Entity_ID
-  ☐ Category_ID
+  ✔ Entity_ID @done(20-02-27 08:15)
+  ✔ Category_ID @done(20-02-27 08:15)
 
 Entity_Tag:
-  ☐ Entity_ID
-  ☐ Tag_ID
+  ✔ Entity_ID @done(20-02-27 08:15)
+  ✔ Tag_ID @done(20-02-27 08:15)
 
 File:
-  ☐ Entity_ID
-  ☐ File_path
-  ☐ file_name
-  ☐ file_type
-  ☐ file_size
-  ☐ file_checksum
-  ☐ NSFW
+  ✔ Entity_ID @done(20-02-27 08:09)
+  ✔ File_path @done(20-02-27 08:09)
+  ✔ file_name @done(20-02-27 08:09)
+  ✔ file_type @done(20-02-27 08:10)
+  ✔ file_size @done(20-02-27 08:09)
+  ✔ file_checksum @done(20-02-27 08:09)
+  ✔ NSFW @done(20-02-27 08:10)
 
 Reports:
-  ☐ reported_ID
-  ☐ user_ID
-  ☐ moderator_id
-  ☐ reason
-  ☐ optional_explanation
-  ☐ active
+  ✔ reported_ID @done(20-02-27 08:29)
+  ✔ user_ID @done(20-02-27 08:29)
+  ✔ moderator_id @done(20-02-27 08:29)
+  ✔ reason @done(20-02-27 08:29)
+  ✔ optional_explanation @done(20-02-27 08:29)
+  ✔ active @done(20-02-27 08:29)
 
 tag:
-  ☐ tag_id
-  ☐ tag_name
+  ✔ tag_id @done(20-02-27 08:08)
+  ✔ tag_name @done(20-02-27 08:08)
 
 Threads:
-  ☐ entity_ID
-  ☐ file_ID
-  ☐ Title
-  ☐ description
-  ☐ edited
-  ☐ is_private
-  ☐ comments_allowed
-  ☐ expiration_date
+  ✔ entity_ID @done(20-02-27 08:17)
+  ✔ file_ID @done(20-02-27 08:17)
+  ✔ Title @done(20-02-27 08:18)
+  ✔ description @done(20-02-27 08:18)
+  ✔ edited @done(20-02-27 08:19)
+  ✔ is_private @done(20-02-27 08:19)
+  ✔ comments_allowed @done(20-02-27 08:19)
+  ✔ expiration_date @done(20-02-27 08:26)
+
+Votes:
+  ✔ Entity_ID @done(20-02-27 08:31)
+  ✔ user_ID @done(20-02-27 08:31)
+  ✔ up_or_down @done(20-02-27 08:31)
+
+User:
+  ✔ user_id @done(20-02-27 08:52)
+  ✔ username @done(20-02-27 08:51)
+  ✔ password @done(20-02-27 08:51)
+  ✔ creation_date @done(20-02-27 08:51)
+  ✔ roles @done(20-02-27 08:52)
+  ✔ email @done(20-02-27 08:52)
+  ✔ active @done(20-02-27 08:52)
