@@ -21,7 +21,6 @@ class FilUploadView(APIView):
                 return Response('up_file', status=status.HTTP_400_BAD_REQUEST)
             if not up_file.size < FILE_UPLOAD_MAX_MEMORY_SIZE:
                 return Response('Fat', status=status.HTTP_400_BAD_REQUEST)
-
             try:
                 """ HTML Header check """
                 con_type, con_ext = str(up_file.content_type).split('/')

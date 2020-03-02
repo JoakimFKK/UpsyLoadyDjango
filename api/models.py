@@ -5,9 +5,16 @@ import os
 import uuid
 
 from django.db import models
-
-from root.settings import BASE_DIR
+from magic import from_file as verify_ct
 # endregion Imports
+
+"""FIL SLETNING BASERET PÅ UPLOADS TIDSPUNKT! IKKE IMPLEMENTERET!
+
+ from datetime import datetime, timedelta
+ File.objects.filter(upload_date__lte=datetime.now(), upload_date__gte=datetime.now()-timedelta(days=30))
+
+ Dette får fat i objekter der er imellem i dag, og 30 dage siden.
+ """
 
 
 class File(models.Model):
@@ -66,8 +73,14 @@ class File(models.Model):
                 """ Hvis `self.checksum` allerede er i databasen bliver den slettet. """
                 self.delete()
                 return
+        # Note Indsæt python-magic tjek her.
+        # if not verify_ct(self.absolute_url, mime=True) == f_type:
+        #     self.delete()
+        #     return
+
         if not self.filesize:
             self.filesize = os.path.getsize(self.absolute_url())
+
         if not self.filename:
             self.filename = os.path.basename(self.absolute_url())
         super().save()
