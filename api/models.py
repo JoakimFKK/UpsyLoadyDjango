@@ -1,3 +1,4 @@
+""" TODO: Lav en temp database-tabel der indeholder filer der er i gang med at bliver uploadet(?) """
 # region Imports
 import hashlib
 import os
@@ -20,39 +21,32 @@ class File(models.Model):
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
-        editable=False,
-    )
+        editable=False,)
     filepath = models.FileField(
-        upload_to='%Y/%m/%d'
-    )
+        upload_to='%Y/%m/%d',)
     filename = models.CharField(
         max_length=255,
-        blank=True,
-    )
+        blank=True,)
     filesize = models.PositiveIntegerField(
         blank=True,
-        null=True,
-    )
+        null=True,)
     checksum = models.CharField(
         max_length=255,
-        blank=True,
-    )
-    upload_date = models.DateTimeField(
+        blank=True,)
+    upload_date = models.DateField(
         auto_now_add=True,
-        editable=False,
-    )
+        editable=False,)
 
     def __str__(self):
         """ Sætter dens objekt-navn til objektets id.
 
-         Kun for æstetiske grunde, har kun en inflydelse på Python.
+         Kun for æstetiske grunde, har kun en inflydelse på Python & Django
          """
         return str(self.id)
 
     def absolute_url(self):
         """ Returnere filens fulde position. """
         return self.filepath.path
-        # return os.path.join(BASE_DIR, self.filepath.url)
 
     def save(self, *args, **kwargs):
         """ Fylder data ud, override af parent-method.
@@ -66,9 +60,12 @@ class File(models.Model):
          efterfulgt af metodens navn.
          """
         super().save()
-
         if not self.checksum:
             self.checksum = hashlib.md5(open(self.absolute_url(), 'rb').read()).hexdigest()
+            if len(File.objects.filter(checksum=self.checksum)) >= 1:
+                """ Hvis `self.checksum` allerede er i databasen bliver den slettet. """
+                self.delete()
+                return
         if not self.filesize:
             self.filesize = os.path.getsize(self.absolute_url())
         if not self.filename:
