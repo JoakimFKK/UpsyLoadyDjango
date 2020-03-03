@@ -1,0 +1,107 @@
+self
+<File: fa4d355a-1585-4678-801e-dbe6de110166>
+self.file
+AttributeError: 'File' object has no attribute 'file'
+self.filepath.file
+<InMemoryUploadedFile: ayylmao.mp4 (video/mp4)>
+baz = self.filepath.file
+
+import os
+
+os.path.exists(baz.path)
+AttributeError: 'InMemoryUploadedFile' object has no attribute 'path'
+baz
+<InMemoryUploadedFile: ayylmao.mp4 (video/mp4)>
+DEFAULT_CHUNK_SIZE: 65536
+charset: None
+closed: False
+content_type: 'video/mp4'
+content_type_extra: {}
+field_name: 'filepath'
+file: <_io.BytesIO object at 0x0000021A478FD770>
+name: 'ayylmao.mp4'
+size: 6506336
+_name: 'ayylmao.mp4'
+baz.content_type
+'video/mp4'
+import hashlib
+
+hashlib.md5(open(baz, 'rb').read()).hexdigest()
+TypeError: expected str, bytes or os.PathLike object, not InMemoryUploadedFile
+baz
+<InMemoryUploadedFile: ayylmao.mp4 (video/mp4)>
+DEFAULT_CHUNK_SIZE: 65536
+charset: None
+closed: False
+content_type: 'video/mp4'
+content_type_extra: {}
+field_name: 'filepath'
+file: <_io.BytesIO object at 0x0000021A478FD770>
+name: 'ayylmao.mp4'
+size: 6506336
+_name: 'ayylmao.mp4'
+baz.size
+6506336
+uno, dos = baz.content_type, baz.size
+
+uno
+'video/mp4'
+dos
+6506336
+baz
+<InMemoryUploadedFile: ayylmao.mp4 (video/mp4)>
+daz.filename
+NameError: name 'daz' is not defined
+baz.file
+<_io.BytesIO object at 0x0000021A478FD770>
+baz.__format__
+<built-in method __format__ of InMemoryUploadedFile object at 0x0000021A478A4D00>
+baz.__hash__
+<method-wrapper '__hash__' of InMemoryUploadedFile object at 0x0000021A478A4D00>
+baz.__hash__()
+144493290704
+baz.charset
+None
+baz.write
+<built-in method write of _io.BytesIO object at 0x0000021A478FD770>
+baz.open
+<bound method InMemoryUploadedFile.open of <InMemoryUploadedFile: ayylmao.mp4 (video/mp4)>>
+baz.chunks
+<bound method InMemoryUploadedFile.chunks of <InMemoryUploadedFile: ayylmao.mp4 (video/mp4)>>
+import os
+
+
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
+from django.conf import settings
+
+baz
+<InMemoryUploadedFile: ayylmao.mp4 (video/mp4)>
+baz.file
+<_io.BytesIO object at 0x0000021A478FD770>
+baz.file()
+TypeError: '_io.BytesIO' object is not callable
+baz.name
+'ayylmao.mp4'
+path = default_storage.save(f'tmp/{baz.name}', ContentFile(data.read()))
+NameError: name 'data' is not defined
+path = default_storage.save(f'tmp/{baz.name}', ContentFile(baz.read()))
+
+from api.models import File
+
+f = Files.objects.all()
+NameError: name 'Files' is not defined
+f = File.objects.all()
+
+f
+<QuerySet [<File: 9e9943ce-a681-4b85-9e84-ca5037db3b05>]>
+f[0]
+<File: 9e9943ce-a681-4b85-9e84-ca5037db3b05>
+os.path.exists(f'tmp/{baz.name}')
+False
+os.path.join(settings.MEDIA_ROOT, f'tmp/{baz.name}')
+'C:\\Users\\joak\\repos\\UpsyLoadyDjango\\media\\tmp/ayylmao.mp4'
+type(baz)
+<class 'django.core.files.uploadedfile.InMemoryUploadedFile'>
+File.objects.all()
+<QuerySet [<File: 9e9943ce-a681-4b85-9e84-ca5037db3b05>]>

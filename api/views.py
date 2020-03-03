@@ -25,7 +25,7 @@ class FilUploadView(APIView):
                 """ HTML Header check """
                 con_type, con_ext = str(up_file.content_type).split('/')
                 if con_ext in CONTENT_TYPES[con_type]:
-                    serializer.save()
+                    new_serializer = serializer.save()
                     return Response(serializer.data, status=status.HTTP_201_CREATED)
             except KeyError:
                 return Response('header', status=status.HTTP_400_BAD_REQUEST)

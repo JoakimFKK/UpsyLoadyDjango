@@ -43,6 +43,9 @@ class File(models.Model):
     upload_date = models.DateField(
         auto_now_add=True,
         editable=False,)
+    media_type = models.CharField(
+        max_length=50,
+        blank=True,)
 
     def __str__(self):
         """ Sætter dens objekt-navn til objektets id.
@@ -68,15 +71,12 @@ class File(models.Model):
          """
         super().save()
         if not self.checksum:
-            self.checksum = hashlib.md5(open(self.absolute_url(), 'rb').read()).hexdigest()
+            temp_checksum = hashlib.md5(open(self.absolute_url(), 'rb').read()).hexdigest()
             if len(File.objects.filter(checksum=self.checksum)) >= 1:
                 """ Hvis `self.checksum` allerede er i databasen bliver den slettet. """
                 self.delete()
                 return
-        # Note Indsæt python-magic tjek her.
-        # if not verify_ct(self.absolute_url, mime=True) == f_type:
-        #     self.delete()
-        #     return
+            self.checksum = temp_checksum
 
         if not self.filesize:
             self.filesize = os.path.getsize(self.absolute_url())
